@@ -1,0 +1,37 @@
+.signin{
+ background-image: url('../images/reg1.png');
+ padding-bottom: 13%;
+}
+
+.signin form div {
+    display: flex;
+  }
+  .signin textarea {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  .signin input {
+    margin-bottom: 20px;
+    margin-right: 10px;
+  }
+  .signin form {
+    padding: 30px;
+  }
+  /* .signin .back{
+    padding-top: 0;
+  } */
+  @media screen and (max-width: 768px) {
+    .signin h4 {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+    .signin form div {
+      flex-direction: column;
+    }
+    .signin input {
+      width: 100%;
+    }
+  }
+  
