@@ -15,28 +15,19 @@ const Hero = () => {
               <input type='text' placeholder='Brand' />
             </div>
             <div className='box'>
-              <span>Car Type</span>
-              <input type='text' placeholder='Car Type' />
+              <span>Fuel Type</span>
+              <input type='text' placeholder='Fuel Type' />
               {/* <select name="cars" id="cars">
-  <option value="Petrol">Petrol</option>
-  <option value="Diesel">Diesel</option>
-  <option value="CNG">CNG</option>
-  <option value="EV">EV</option>
-</select> */}
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="CNG">CNG</option>
+                <option value="EV">EV</option>
+              </select> */}
+
             </div>
             <div className='box'>
               <span>Price Range</span>
               <input type='text' placeholder='Price Range' />
-            </div>
-            <div className='box'>
-              <h4><label for="cars">Fuel Type:</label></h4>
-
-<select name="cars" id="cars">
-  <option value="Petrol">Petrol</option>
-  <option value="Diesel">Diesel</option>
-  <option value="CNG">CNG</option>
-  <option value="EV">EV</option>
-</select>
             </div>
             <button className='btn1'>
               <i className='fa fa-search'></i>

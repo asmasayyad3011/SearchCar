@@ -22,18 +22,55 @@
 //     console.log("started port 9002");
 // })
 
-const {MongoClient} = require('mongodb');
+// const {MongoClient} = require('mongodb');
+// const url = 'mongodb://localhost:27017';
+// const database='car_data'
+// const client= new MongoClient(url);
+
+// async function getData()
+// {
+//     let result = await client.connect();
+//     let db=result.db(database)
+//     let collection = db.collection('product_info');
+//     let response = await collection.find({}).toArray()
+//     console.log(response) 
+// }
+
+// getData();
+
+
+
+const express = require('express');
+const { MongoClient } = require('mongodb');
+
+
+
+const app = express();
+const port = 4000;
+
+const cors = require('cors');
+app.use(cors());
+
 const url = 'mongodb://localhost:27017';
-const database='car_data'
-const client= new MongoClient(url);
+const database = 'car_data';
+const client = new MongoClient(url);
 
-async function getData()
-{
+app.use(express.json());
+
+app.get('/data', async (req, res) => {
+  try {
     let result = await client.connect();
-    let db=result.db(database)
+    let db = result.db(database);
     let collection = db.collection('product_info');
-    let response = await collection.find({}).toArray()
-    console.log(response) 
-}
+    let response = await collection.find({}).toArray();
+    res.json(response);
+  } catch (error) {
+    console.error('Error retrieving data:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
-getData();
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+});
+
