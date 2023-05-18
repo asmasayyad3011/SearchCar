@@ -8,7 +8,9 @@ const Location = () => {
     <>
       <section className='location padding'>
         <div className='container'>
-          <Heading title='Explore By Location' subtitle='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.' />
+          <Heading title='Explore By Location' subtitle='Unleash your passion as you explore your dream car at your nearest location.
+Indulge in automotive excellence and discover your dream car in your nearby destination.Fuel your desires and satisfy your automotive 
+cravings by exploring your dream car at your conveniently located destination.' />
 
           <div className='content grid3 mtop'>
             {location.map((item, index) => (
@@ -18,8 +20,8 @@ const Location = () => {
                   <h5>{item.name}</h5>
                   <p>
                     <label>{item.Villas}</label>
-                    <label>{item.Offices}</label>
                     <label>{item.Apartments}</label>
+                    <label>{item.Offices}</label>
                   </p>
                 </div>
               </div>
