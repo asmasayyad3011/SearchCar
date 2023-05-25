@@ -1,54 +1,10 @@
-// import express from "express"
-// import cors from "cors"
-// import mongoose from "mongoose"
-
-// const app = express()
-// app.use(express.json())
-// app.use(express.urlencoded())
-// app.use(cors())
-
-
-// mongoose.connect('mongodb://127.0.0.1:27017/car_data', {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// },).then(()=>console.log("DB connected"))
-// .catch((err)=>{console.log(err);})
-
-// // Rotes
-// app.get("/",(req,res)=>{
-//     res.send("my apii")
-// })
-// app.listen(9002,()=>{
-//     console.log("started port 9002");
-// })
-
-// const {MongoClient} = require('mongodb');
-// const url = 'mongodb://localhost:27017';
-// const database='car_data'
-// const client= new MongoClient(url);
-
-// async function getData()
-// {
-//     let result = await client.connect();
-//     let db=result.db(database)
-//     let collection = db.collection('product_info');
-//     let response = await collection.find({}).toArray()
-//     console.log(response) 
-// }
-
-// getData();
-
-
-
 const express = require('express');
 const { MongoClient } = require('mongodb');
 
-
-
+const cors = require('cors');
 const app = express();
 const port = 4000;
 
-const cors = require('cors');
 app.use(cors());
 
 const url = 'mongodb://localhost:27017';
@@ -59,18 +15,42 @@ app.use(express.json());
 
 app.get('/data', async (req, res) => {
   try {
+    // res.header('Access-Control-Allow-Origin', '*');
+    const query = {};
+    query.Fuel_type = req.query.fuelType;
+    query.Brand = req.query.selectbrand;
+    query.transmission = req.query.transmission;
+    query.body_type = req.query.bodyType;
+    // query.price = req.query.Price;
+
     let result = await client.connect();
     let db = result.db(database);
     let collection = db.collection('product_info');
-    let response = await collection.find({}).toArray();
+    let response = await collection.find(query).toArray();
+    // console.log(req.fuelType);
+    // console.log('req.query',req.query);
+    // console.log('res',response);
     res.json(response);
   } catch (error) {
-    console.error('Error retrieving data:', error);
+    // console.error('Error retrieving data:', error);
     res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+app.get('/brands', async (req, res) => {
+  try {
+    await client.connect();
+    const db = client.db(database);
+    const collection = db.collection('product_info');
+
+    const brands = await collection.distinct('Brand');
+    console.log(brands);
+    res.json(brands);
+  } catch (error) {
+    res.json({ message: 'Internal server error' });
   }
 });
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
-

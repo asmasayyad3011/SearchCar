@@ -36,7 +36,19 @@ form input {
   margin-top: 5px;
   border-radius: 5px;
 }
+form select {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
 form span {
+  font-size: 14px;
+  color: grey;
+}
+form select {
   font-size: 14px;
   color: grey;
 }
@@ -44,6 +56,12 @@ input::placeholder {
   font-size: 17px;
   color: black;
 }
+.select-items {
+  font-size: 17px;
+  color: black;
+}
+
+
 form .box {
   padding: 15px;
   border-left: 1px solid rgba(128, 128, 128, 0.2);

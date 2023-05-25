@@ -32,27 +32,27 @@ export const featured = [
   {
     cover: "../images/hero/A1hatchback.png",
     name: "Hatchback",
-    total: "122 Property",
+    // total: "234 cars listed",
   },
   {
     cover: "../images/hero/A2sedan.png",
     name: "Sedan",
-    total: "155 Property",
+    // total: "255 cars listed",
   },
   {
     cover: "../images/hero/A3coupe.png",
     name: "Coupe",
-    total: "300 Property",
+    // total: "300 cars listed",
   },
   {
     cover: "../images/hero/A4suv.png",
-    name: "Suv",
-    total: "80 Property",
+    name: "SUV",
+    // total: "280 cars listed",
   },
   {
     cover: "../images/hero/A5convertibles.png",
-    name: "Convertibles",
-    total: "80 Property",
+    name: "Convertible",
+    // total: "380 cars listed",
   },
 ]
 export const list = [

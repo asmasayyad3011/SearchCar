@@ -17,9 +17,7 @@ const Signin = () => {
                   <input type='password' placeholder='Password' />
                   <input type='password' placeholder='Confirm Password' />
                 </div>
-                {/* <input type='text' placeholder='Subject' />
-                <textarea cols='30' rows='10'></textarea> */}
-                <button>Submit Request</button>
+                <button>Submit</button>
               </form>
             </div>
           </section>
