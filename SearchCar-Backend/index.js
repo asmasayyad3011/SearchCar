@@ -7,8 +7,8 @@ const port = 4000;
 
 app.use(cors());
 
-const url = 'mongodb://localhost:27017';
-const database = 'car_data';
+const url = 'mongodb+srv://newUser_ad:Newadmin@cluster0.lxfd89g.mongodb.net/?retryWrites=true&w=majority';
+const database = 'atlasConDB';
 const client = new MongoClient(url);
 
 app.use(express.json());
@@ -24,8 +24,10 @@ app.get('/data', async (req, res) => {
     // query.price = req.query.Price;
 
     let result = await client.connect();
+    console.log("result",result);
+    console.log("mongo connnected")
     let db = result.db(database);
-    let collection = db.collection('product_info');
+    let collection = db.collection('cars');
     let response = await collection.find(query).toArray();
     // console.log(req.fuelType);
     // console.log('req.query',req.query);
@@ -38,12 +40,13 @@ app.get('/data', async (req, res) => {
 });
 
 app.get('/brands', async (req, res) => {
+  // res.json({ message: 'Internal server error' });
   try {
     await client.connect();
     const db = client.db(database);
-    const collection = db.collection('product_info');
+    const collection = db.collection('cars');
 
-    const brands = await collection.distinct('Brand');
+    const brands = await collection.distinct('Brand');   
     console.log(brands);
     res.json(brands);
   } catch (error) {
