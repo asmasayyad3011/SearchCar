@@ -37,8 +37,8 @@ const Hero = () => {
 
   async function fetchData() {
     try {
-      // const response = await axios.get('https://searchcar-b.onrender.com/data', {
-      const response = await axios.get('http://localhost:4000/data', {
+      const response = await axios.get('https://searchcar-b.onrender.com/data', {
+      // const response = await axios.get('http://localhost:4000/data', {
         params: {
          fuelType,
          selectbrand,
@@ -46,7 +46,7 @@ const Hero = () => {
          bodyType,
         },
         headers: {
-          // 'Access-Control-Allow-Origin': 'https://search-car.vercel.app/'
+          'Access-Control-Allow-Origin': 'https://search-car.vercel.app/'
         }
       });
       setCarData(response.data);
@@ -58,8 +58,8 @@ const Hero = () => {
   // BRAND
   async function fetchBrands() {
     try {
-      // const response = await axios.get('https://searchcar-b.onrender.com/brands');
-      const response = await axios.get('http://localhost:4000/brands');
+      const response = await axios.get('https://searchcar-b.onrender.com/brands');
+      // const response = await axios.get('http://localhost:4000/brands');
       console.log(response.data);
       setBrands(response.data);
       
